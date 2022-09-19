@@ -5,11 +5,14 @@
 # include <stdio.h>  
 # include <stdlib.h>
 # include <time.h>
+# include <ctype.h>
 
 
 using namespace std;
 
 void rules(){
+    cout << "******************************************************" << endl;
+    cout << "Rule of the Challenge" << endl;
     cout << "This challenge must be played using the artifact of Command" << endl;
     cout << "Before each item is chosen, if the color of the item had not been rolled for, then roll for an item of that type." << endl;
     cout << "If it has been, then you are only aloud to have equipment of that item." << endl;
@@ -19,10 +22,11 @@ void rules(){
     cout << "\t eg: If a player gets Tougher times as their white item, then Lost Seer's Lenses (Lens-Maker's Glasses) as their corrupted white item. The next white item can either be Tougher times or Lost Seer's Lenses (Lens-Maker's Glasses) (player's choice)" << endl;
     cout << "carefull, some items are dud items. The last thing you want is rusted/encrusted keys as you can only stack those when they come up" << endl;
     cout << "GOOD LUCK!" << endl;
+    cout << "******************************************************" << endl;
 }
 
 int main (){
-    int choice = 0;
+    char choice = 'q';
     string input = "";
     string color = "";
     ifstream items;
@@ -30,67 +34,77 @@ int main (){
     
     srand(time(NULL));
     
-    cout << "Rule of the Challenge" << endl;
+    cout << "******************************************************" << endl;
+    cout << "Welcome to the Shrine of Order Challenge" << endl;
     
     rules();
     
     do {
         cout << "What type of item are you spinning for?" << endl;
-        cout << "1 - White" << endl;
-        cout << "2 - Green" << endl;
-        cout << "3 - Red" << endl;
-        cout << "4 - Yellow" << endl;
-        cout << "5 - Blue" << endl;
-        cout << "6 - Blue Equipment" << endl;
-        cout << "7 - Corrupted White" << endl;
-        cout << "8 - Corrupted Green" << endl;
-        cout << "9 - Corrupted Red" << endl;
+        cout << "W - White (Common)" << endl;
+        cout << "G - Green (Uncommon)" << endl;
+        cout << "R - Red (Legendary)" << endl;
+        cout << "O - Orange (Equipment)" << endl;
+        cout << "Y - Yellow (Boss)" << endl;
+        cout << "B - Blue (Lunar)" << endl;
+        cout << "1 - Blue Equipment (Lunar Equipment)" << endl;
+        cout << "2 - Corrupted White (Common Void)" << endl;
+        cout << "3 - Corrupted Green (Uncomon Void)" << endl;
+        cout << "4 - Corrupted Red (Legendary Void)" << endl;
         cout << "--------------------" << endl;
         cout << "0 - Exit program" << endl;
+        cout << "R - rules" << endl;
         
-        getline (cin,input);
-        choice = input[0] - 48; // bias as this returs the ascii numbers for 0-8 which are 48-57
+        getline(cin,input);
+        choice = toupper(input[0]);
         
         switch (choice){
-            case 0:
+            case '0':
                 cout << "Closing Program" << endl;
                 return 0;
                 break;
-            case 1:
+            case 'W':
                 color = "White";
                 items.open("White.txt");
                 break;
-            case 2:
+            case 'G':
                 color = "Green";
                 items.open("Green.txt");
                 break;
-            case 3:
+            case 'R':
                 color = "Red";
                 items.open("Red.txt");
                 break;
-            case 4:
+            case 'Y':
                 color = "Yellow";
                 items.open("Yellow.txt");
                 break;
-            case 5:
+            case 'O':
+                color = "Orange";
+                items.open("Orange.txt");
+                break;
+            case 'B':
                 color = "Blue";
                 items.open("Blue.txt");
                 break;
-            case 6:
+            case '1':
                 color = "Blue Equipment";
                 items.open("BlueEquipment.txt");
                 break;
-            case 7:
+            case '2':
                 color = "Corrupted White";
                 items.open("Purple_White.txt");
                 break;
-            case 8:
+            case '3':
                 color = "Corrupted Green";
                 items.open("Purple_Green.txt");
                 break;
-            case 9:
+            case '4':
                 color = "Corrupted Red";
                 items.open("Purple_Red.txt");
+                break;
+            case 'r':
+                rules();
                 break;
             default:
                 cout << "Error unknown entry" << endl;
@@ -115,8 +129,10 @@ int main (){
             items.close();
         }
         else {
-            cout << "File did not open" << endl;
-            return 301;
+            if (choice != 'r'){
+                cout << "File did not open" << endl;
+                return 301;
+            }
         }
         
         cout << "Press enter to continue..." << endl;
