@@ -31,6 +31,7 @@ int main (){
     string color = "";
     ifstream items;
     vector<string> list;
+    bool skip = false;
     
     srand(time(NULL));
     
@@ -53,7 +54,7 @@ int main (){
         cout << "4 - Corrupted Red (Legendary Void)" << endl;
         cout << "--------------------" << endl;
         cout << "0 - Exit program" << endl;
-        cout << "R - rules" << endl;
+        cout << "? - rules" << endl;
         
         getline(cin,input);
         choice = toupper(input[0]);
@@ -103,12 +104,14 @@ int main (){
                 color = "Corrupted Red";
                 items.open("Purple_Red.txt");
                 break;
-            case 'r':
+            case '?':
                 rules();
                 break;
             default:
-                cout << "Error unknown entry" << endl;
-                return 404;
+                cout << "-------------------------------------------------" << endl;
+                cout << "---------------Error unknown entry---------------" << endl;
+                cout << "-------------------------------------------------" << endl;
+                skip = true;
         }
 
         if (items.is_open()){
@@ -119,7 +122,11 @@ int main (){
             
             int rand_num = rand() % list.size();
             
+            cout << "****************************************" << endl;
+            cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << endl;
             cout << "your random " << color << " item is : " << list[rand_num] << endl;
+            cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << endl;
+            cout << "****************************************" << endl;
             
             while (list.size() != 0)
             {
@@ -129,15 +136,12 @@ int main (){
             items.close();
         }
         else {
-            if (choice != 'r'){
+            if (choice != 'r' && choice != '?' && !skip){
                 cout << "File did not open" << endl;
-                return 301;
+                return 404;
             }
-        }
-        
-        cout << "Press enter to continue..." << endl;
-        getline (cin, input);
-        
+            skip = false;
+        }        
     }while (choice != 0);
     return 0;
 }
