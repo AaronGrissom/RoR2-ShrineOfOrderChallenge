@@ -2,8 +2,9 @@
 *.ipynb_checkpoints
 *.ipynb_checkpoints/
 
+.metals/
+
 #C++
-*.out
 *.d
 
 # Compiled Object files
