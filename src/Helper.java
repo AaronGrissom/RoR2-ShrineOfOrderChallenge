@@ -1,6 +1,143 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Helper {
+
+    static int numWhite = 0;
+    static int numGreen = 0;
+    static int numRed = 0;
+    static int numYellow = 0;
+    static int numOrange = 0;
+    static int numBlue = 0;
+    static int numBlueE = 0;
+    static int numPurpW = 0;
+    static int numPurpG = 0;
+    static int numPurpR = 0;
+
+    static public void CountItems() {
+        File file = new File("Items\\White.txt");
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                sc.nextLine();
+                numWhite++;
+            }
+            sc.close();
+            System.out.println(numWhite);
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open White.txt");
+            e.printStackTrace();
+        }
+
+        file = new File("Items\\Green.txt");
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                sc.nextLine();
+                numGreen++;
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open Green.txt");
+            e.printStackTrace();
+        }
+
+        file = new File("Items\\Red.txt");
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                sc.nextLine();
+                numRed++;
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open Red.txt");
+            e.printStackTrace();
+        }
+
+        file = new File("Items\\Yellow.txt");
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                sc.nextLine();
+                numYellow++;
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open Yellow.txt");
+            e.printStackTrace();
+        }
+
+        file = new File("Items\\Orange.txt");
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                sc.nextLine();
+                numOrange++;
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open Orange.txt");
+            e.printStackTrace();
+        }
+
+        file = new File("Items\\Blue.txt");
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                sc.nextLine();
+                numBlue++;
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open Blue.txt");
+            e.printStackTrace();
+        }
+
+        file = new File("Items\\BlueEquipment.txt");
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                sc.nextLine();
+                numBlueE++;
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open BlueEquipment.txt");
+            e.printStackTrace();
+        }
+
+        file = new File("Items\\Purple_White.txt");
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                sc.nextLine();
+                numPurpW++;
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open Purple_White.txt");
+            e.printStackTrace();
+        }
+
+        file = new File("Items\\Purple_Green.txt");
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                sc.nextLine();
+                numPurpG++;
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open Purple_Green.txt");
+            e.printStackTrace();
+        }
+
+        file = new File("Items\\Purple_Red.txt");
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                sc.nextLine();
+                numPurpR++;
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open Purple_Red.txt");
+            e.printStackTrace();
+        }
+    }
     
     
     // returns random int between min and max (inclusive)
