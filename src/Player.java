@@ -256,4 +256,99 @@ public class Player {
         }
     }
 
+    public void GenerateWhite(){
+        File file = new File("Items\\White.txt");
+        try (Scanner sc = new Scanner(file)) {
+            String item = "";
+            for (int i = 0; i < Helper.RandInt(1, Helper.numWhite); i++){
+                item = sc.nextLine();
+            }
+            sc.close();
+            SetWhite(item);
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open White.txt");
+            e.printStackTrace();
+        }
+    }
+
+    public void GenerateGreen(){
+        File file = new File("Items\\Green.txt");
+        try (Scanner sc = new Scanner(file)) {
+            String item = "";
+            for (int i = 0; i < Helper.RandInt(1, Helper.numGreen); i++){
+                item = sc.nextLine();
+            }
+            sc.close();
+            SetGreen(item);
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open Green.txt");
+            e.printStackTrace();
+        }
+    }
+
+    public void GenerateRed() {
+        File file = new File("Items\\Red.txt");
+        try (Scanner sc = new Scanner(file)) {
+            String item = "";
+            for (int i = 0; i < Helper.RandInt(1, Helper.numRed); i++){
+                item = sc.nextLine();
+            }
+            sc.close();
+            SetRed(item);
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open Red.txt");
+            e.printStackTrace();
+        }
+    }
+
+    public void GenerateYellow() {
+        File file = new File("Items\\Yellow.txt");
+        try (Scanner sc = new Scanner(file)) {
+            String item = "";
+            for (int i = 0; i < Helper.RandInt(1, Helper.numYellow); i++){
+                item = sc.nextLine();
+            }
+            sc.close();
+            SetYellow(item);
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open Yellow.txt");
+            e.printStackTrace();
+        }
+    }
+
+    public void GenerateOrange() {
+        File file = new File("Items\\Orange.txt");
+        try (Scanner sc = new Scanner(file)) {
+            String item = "";
+            for (int i = 0; i < Helper.RandInt(1, Helper.numOrange); i++){
+                item = sc.nextLine();
+            }
+            sc.close();
+            SetOrange(item);
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open Orange.txt");
+            e.printStackTrace();
+        }
+    }
+
+    public void GenerateBlue() {
+        File file = new File("Items\\Blue.txt");
+        try (Scanner sc = new Scanner(file)) {
+            String item = "";
+            for (int i = 0; i < Helper.RandInt(1, Helper.numBlue); i++){
+                item = sc.nextLine();
+            }
+            sc.close();
+            SetBlue(item);
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open Blue.txt");
+            e.printStackTrace();
+        }
+    }
 }

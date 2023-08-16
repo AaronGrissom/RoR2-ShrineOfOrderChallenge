@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Helper {
 
+    static Scanner scnr = new Scanner(System.in);
+
     static int numWhite = 0;
     static int numGreen = 0;
     static int numRed = 0;
@@ -139,6 +141,12 @@ public class Helper {
         }
     }
     
+    static public Boolean parsBoolInput() {
+        Scanner scnr = new Scanner(System.in);
+        char input = scnr.next().charAt(0);
+        scnr.close();
+        return (input == 'Y' || input == 'y');
+    }
     
     // returns random int between min and max (inclusive)
     static int RandInt(int min, int max){
